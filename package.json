@@ -1,0 +1,30 @@
+{
+  "name": "paradise-nursery-shopping",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Paradise Nursery shopping app built with Vite and Redux Toolkit.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "redux"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.13.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.3"
+  }
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Paradise Nursery Background</title>
+  <desc id="desc">Illustrated greenhouse with layered tropical leaves.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#9fd0b4" />
+      <stop offset="100%" stop-color="#2e5f45" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#d7f2e3" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)" />
+  <circle cx="1270" cy="170" r="88" fill="#fff7cc" opacity="0.75" />
+  <path d="M150 880C250 630 350 470 530 420c120-34 194 14 280 8 133-10 163-126 311-122 140 4 296 149 329 574H150Z" fill="#173126" opacity="0.55" />
+  <path d="M420 850V350l380-210 380 210v500H420Z" fill="#1e4332" opacity="0.7" />
+  <path d="M470 825V380l330-182 330 182v445H470Z" fill="url(#glass)" stroke="#d9f2e5" stroke-width="8" />
+  <path d="M800 198v627M470 380h660M635 290v535M965 290v535" stroke="#d9f2e5" stroke-width="8" opacity="0.6" />
+  <g fill="#315f40">
+    <path d="M162 923c47-147 116-247 208-298-23 95-49 183-208 298Z" />
+    <path d="M270 922c24-138 87-265 179-341 10 107-49 222-179 341Z" />
+    <path d="M1380 937c-161-115-215-229-203-342 104 73 161 202 203 342Z" />
+    <path d="M1240 930c-153-104-214-201-223-310 115 54 190 167 223 310Z" />
+  </g>
+  <g fill="#8ab06f">
+    <path d="M610 855c-45-114-36-205 28-278 59 75 65 169-28 278Z" />
+    <path d="M710 870c-30-153 5-252 95-321 45 114 14 228-95 321Z" />
+    <path d="M886 871c-106-95-143-201-110-313 87 74 129 179 110 313Z" />
+    <path d="M1007 852c-89-76-122-172-96-285 75 61 117 160 96 285Z" />
+  </g>
+</svg>
