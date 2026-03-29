@@ -1,19 +1,41 @@
-# Paradise Nursery Shopping
+# paradise-nursery-shopping
 
-Paradise Nursery Shopping is a React app built with Vite, React Router, and Redux Toolkit. It provides a branded landing page, an about page, a categorized product listing, and a shopping cart with quantity controls.
+`paradise-nursery-shopping` is a Vite + React storefront for a fictional indoor plant shop, Paradise Nursery. The app includes a landing page, an about page, a categorized plant catalog, and a Redux-powered shopping cart.
+
+## Tech Stack
+
+- React 19
+- Vite
+- React Router
+- Redux Toolkit
+- React Redux
 
 ## Features
 
-- Landing page with the Paradise Nursery brand and a `Get Started` button.
-- About page describing the company.
-- Product listing page with 18 houseplants across 3 categories.
-- Add-to-cart flow with disabled buttons once a plant has been added.
-- Cart page with quantity updates, delete actions, and total cost calculations.
-- Shared navigation with links to Home, Plants, and Cart, plus a dynamic cart count badge.
+- Branded landing page with calls to action for browsing plants or learning about the nursery.
+- About page describing the Paradise Nursery concept and product focus.
+- Plant catalog with 18 products grouped into 3 categories:
+  Air Purifiers, Low Maintenance, and Statement Plants.
+- Add-to-cart flow with buttons that disable after a product is already in the cart.
+- Cart quantity management for increasing, decreasing, and removing items.
+- Automatic cart item count badge and total price calculation.
 
-## Run Locally
+## Routes
+
+- `/` for the landing page
+- `/about` for the company overview
+- `/products` for the plant catalog
+- `/cart` for the shopping cart
+
+## Getting Started
 
 ```bash
 npm install
 npm run dev
+```
+
+## Build
+
+```bash
+npm run build
 ```
