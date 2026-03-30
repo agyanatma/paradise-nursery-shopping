@@ -6,6 +6,7 @@ import {
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
+  selectCartCount,
   selectCartItems,
   selectCartTotal,
 } from "../features/cart/CartSlice";
@@ -24,7 +25,11 @@ const CartRow = ({ item }) => {
       </div>
       <div className="cart-controls">
         <div className="quantity-controls">
-          <button type="button" onClick={() => dispatch(decreaseQuantity(item.id))}>
+          <button
+            type="button"
+            disabled={item.quantity === 1}
+            onClick={() => dispatch(decreaseQuantity(item.id))}
+          >
             -
           </button>
           <span>{item.quantity}</span>
@@ -47,6 +52,7 @@ const CartRow = ({ item }) => {
 const CartItem = () => {
   const [checkoutMessage, setCheckoutMessage] = useState("");
   const items = useSelector(selectCartItems);
+  const itemCount = useSelector(selectCartCount);
   const total = useSelector(selectCartTotal);
 
   return (
@@ -56,6 +62,7 @@ const CartItem = () => {
         <section className="cart-summary">
           <p className="eyebrow">Shopping Cart</p>
           <h1>Your plant collection</h1>
+          <p>Total plants in cart: {itemCount}</p>
           <p>Total cart amount: ${total.toFixed(2)}</p>
         </section>
 
