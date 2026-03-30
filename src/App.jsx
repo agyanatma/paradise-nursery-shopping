@@ -1,12 +1,22 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import "./App.css";
 import AboutUs from "./components/AboutUs";
 import ProductList from "./components/ProductList";
 import CartItem from "./components/CartItem";
 
 const LandingPage = () => {
+  const [showProductList, setShowProductList] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (showProductList) {
+      navigate("/products");
+    }
+  }, [showProductList, navigate]);
+
   return (
-    <main className="landing-page">
+    <main className="landing-page background-image">
       <section className="hero-panel">
         <div className="hero-brand">
           <h1>Welcome to Paradise Nursery</h1>
@@ -16,9 +26,12 @@ const LandingPage = () => {
             new and experienced plant owners.
           </p>
           <div className="hero-actions">
-            <Link to="/products" className="cta-button">
+            <button
+              className="cta-button"
+              onClick={() => setShowProductList(true)}
+            >
               Get Started
-            </Link>
+            </button>
             <Link to="/about" className="secondary-link">
               Learn About Us
             </Link>
