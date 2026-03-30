@@ -8,49 +8,32 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addItem: (state, action) => {
       const plant = action.payload;
-      const existingItem = state.items[plant.id];
-
-      if (existingItem) {
-        existingItem.quantity += 1;
-        return;
-      }
-
-      state.items[plant.id] = {
-        ...plant,
-        quantity: 1,
-      };
-    },
-    increaseQuantity: (state, action) => {
-      const item = state.items[action.payload];
-
-      if (item) {
-        item.quantity += 1;
+      if (!state.items[plant.id]) {
+        state.items[plant.id] = {
+          ...plant,
+          quantity: 1,
+        };
       }
     },
-    decreaseQuantity: (state, action) => {
-      const item = state.items[action.payload];
-
-      if (!item) {
-        return;
-      }
-
-      if (item.quantity <= 1) {
-        delete state.items[action.payload];
-        return;
-      }
-
-      item.quantity -= 1;
-    },
-    removeFromCart: (state, action) => {
+    removeItem: (state, action) => {
       delete state.items[action.payload];
+    },
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
+      if (state.items[id]) {
+        if (quantity <= 0) {
+          delete state.items[id];
+        } else {
+          state.items[id].quantity = quantity;
+        }
+      }
     },
   },
 });
 
-export const { addToCart, increaseQuantity, decreaseQuantity, removeFromCart } =
-  cartSlice.actions;
+export const { addItem, removeItem, updateQuantity } = cartSlice.actions;
 
 export const selectCartItems = (state) => Object.values(state.cart.items);
 export const selectCartCount = (state) =>

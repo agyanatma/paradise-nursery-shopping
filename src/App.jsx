@@ -9,8 +9,7 @@ const LandingPage = () => {
     <main className="landing-page">
       <section className="hero-panel">
         <div className="hero-brand">
-          <p className="eyebrow">Paradise Nursery</p>
-          <h1>Bring home lush, calming greenery.</h1>
+          <h1>Welcome to Paradise Nursery</h1>
           <p className="hero-lead">
             Paradise Nursery is a boutique indoor plant shop built around easy
             browsing, thoughtful plant curation, and a simple shopping flow for

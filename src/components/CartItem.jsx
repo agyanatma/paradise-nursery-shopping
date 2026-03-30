@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Navbar } from "./ProductList";
 import {
-  decreaseQuantity,
-  increaseQuantity,
-  removeFromCart,
+  removeItem,
+  updateQuantity,
   selectCartCount,
   selectCartItems,
   selectCartTotal,
@@ -14,6 +13,14 @@ import {
 const CartRow = ({ item }) => {
   const dispatch = useDispatch();
   const lineTotal = item.price * item.quantity;
+
+  const handleIncrement = () => {
+    dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
+  };
+
+  const handleDecrement = () => {
+    dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+  };
 
   return (
     <article className="cart-item">
@@ -28,19 +35,19 @@ const CartRow = ({ item }) => {
           <button
             type="button"
             disabled={item.quantity === 1}
-            onClick={() => dispatch(decreaseQuantity(item.id))}
+            onClick={handleDecrement}
           >
             -
           </button>
           <span>{item.quantity}</span>
-          <button type="button" onClick={() => dispatch(increaseQuantity(item.id))}>
+          <button type="button" onClick={handleIncrement}>
             +
           </button>
         </div>
         <button
           type="button"
           className="remove-button"
-          onClick={() => dispatch(removeFromCart(item.id))}
+          onClick={() => dispatch(removeItem(item.id))}
         >
           Delete
         </button>
@@ -84,7 +91,7 @@ const CartItem = () => {
               <button
                 type="button"
                 className="cta-button"
-                onClick={() => setCheckoutMessage("Checkout coming soon.")}
+                onClick={() => setCheckoutMessage("Coming Soon")}
               >
                 Checkout
               </button>
