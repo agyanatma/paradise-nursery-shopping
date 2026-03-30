@@ -8,19 +8,30 @@ const LandingPage = () => {
   return (
     <main className="landing-page">
       <section className="hero-panel">
-        <p className="eyebrow">Welcome to Paradise Nursery</p>
-        <h1>Bring home lush, calming greenery.</h1>
-        <p>
-          Explore curated indoor plants, simple care guidance, and a shopping
-          flow built for first-time and seasoned plant owners alike.
-        </p>
-        <div className="hero-actions">
-          <Link to="/products" className="cta-button">
-            Get Started
-          </Link>
-          <Link to="/about" className="secondary-link">
-            Learn About Us
-          </Link>
+        <div className="hero-brand">
+          <p className="eyebrow">Paradise Nursery</p>
+          <h1>Bring home lush, calming greenery.</h1>
+          <p className="hero-lead">
+            Paradise Nursery is a boutique indoor plant shop built around easy
+            browsing, thoughtful plant curation, and a simple shopping flow for
+            new and experienced plant owners.
+          </p>
+          <div className="hero-actions">
+            <Link to="/products" className="cta-button">
+              Get Started
+            </Link>
+            <Link to="/about" className="secondary-link">
+              Learn About Us
+            </Link>
+          </div>
+        </div>
+        <div className="hero-details" aria-label="Company overview">
+          <p className="eyebrow">Why Shop Here</p>
+          <ul className="hero-points">
+            <li>Air-purifying, low-maintenance, and statement plants.</li>
+            <li>Clear pricing, quick add-to-cart actions, and live cart totals.</li>
+            <li>A focused storefront designed around the Paradise Nursery brand.</li>
+          </ul>
         </div>
       </section>
     </main>
