@@ -1,5 +1,6 @@
 const AboutUs = () => {
   return (
+    <div className="about-us-container">
     <section className="info-page">
       <p className="eyebrow">About Paradise Nursery</p>
       <h1>Houseplants chosen to make indoor spaces feel alive.</h1>
@@ -15,6 +16,7 @@ const AboutUs = () => {
         thumbnail, and quick add-to-cart flow to keep shopping simple.
       </p>
     </section>
+    </div>
   );
 };
 

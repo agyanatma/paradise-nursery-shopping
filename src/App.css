@@ -29,16 +29,18 @@ button {
   min-height: 100vh;
 }
 
+.background-image {
+  background-image: linear-gradient(rgba(16, 39, 31, 0.55), rgba(16, 39, 31, 0.7)),
+    url("./assets/nursery-hero.svg");
+  background-position: center;
+  background-size: cover;
+}
+
 .landing-page {
   min-height: 100vh;
   display: grid;
   place-items: center;
   padding: 2rem;
-  background-image:
-    linear-gradient(rgba(16, 39, 31, 0.55), rgba(16, 39, 31, 0.7)),
-    url("./assets/nursery-hero.svg");
-  background-position: center;
-  background-size: cover;
 }
 
 .hero-panel,

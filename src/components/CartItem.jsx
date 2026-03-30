@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "./ProductList";
 import {
   removeItem,
@@ -57,10 +56,14 @@ const CartRow = ({ item }) => {
 };
 
 const CartItem = () => {
-  const [checkoutMessage, setCheckoutMessage] = useState("");
+  const navigate = useNavigate();
   const items = useSelector(selectCartItems);
   const itemCount = useSelector(selectCartCount);
   const total = useSelector(selectCartTotal);
+
+  const handleContinueShopping = () => {
+    navigate("/products");
+  };
 
   return (
     <div className="page-shell">
@@ -76,9 +79,9 @@ const CartItem = () => {
         {items.length === 0 ? (
           <section className="empty-cart">
             <p>Your cart is currently empty.</p>
-            <Link to="/products" className="cta-button">
+            <button className="cta-button" onClick={handleContinueShopping}>
               Continue Shopping
-            </Link>
+            </button>
           </section>
         ) : (
           <>
@@ -91,15 +94,18 @@ const CartItem = () => {
               <button
                 type="button"
                 className="cta-button"
-                onClick={() => setCheckoutMessage("Coming Soon")}
+                onClick={() => alert("Coming Soon")}
               >
                 Checkout
               </button>
-              <Link to="/products" className="secondary-link">
+              <button
+                type="button"
+                className="secondary-link"
+                onClick={handleContinueShopping}
+              >
                 Continue Shopping
-              </Link>
+              </button>
             </section>
-            {checkoutMessage ? <p className="checkout-note">{checkoutMessage}</p> : null}
           </>
         )}
       </main>
