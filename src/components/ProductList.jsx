@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart, selectCartCount } from "../features/cart/CartSlice";
+import { addItem, selectCartCount } from "../features/cart/CartSlice";
 
 const createThumb = (label, accent) => {
   const svg = `
@@ -190,7 +191,7 @@ const Navbar = () => {
 
 const ProductList = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
+  const [addedToCart, setAddedToCart] = useState({});
   return (
     <div className="page-shell">
       <Navbar />
@@ -211,25 +212,24 @@ const ProductList = () => {
               <p>{group.plants.length} plants available</p>
             </div>
             <div className="plant-grid">
-              {group.plants.map((plant) => {
-                const isInCart = Boolean(cartItems[plant.id]);
-
-                return (
-                  <article key={plant.id} className="plant-card">
-                    <img src={plant.image} alt={plant.name} className="plant-thumb" />
-                    <h3>{plant.name}</h3>
-                    <p className="plant-description">{plant.description}</p>
-                    <p className="price">${plant.price.toFixed(2)}</p>
-                    <button
-                      type="button"
-                      disabled={isInCart}
-                      onClick={() => dispatch(addToCart(plant))}
-                    >
-                      {isInCart ? "Added to Cart" : "Add to Cart"}
-                    </button>
-                  </article>
-                );
-              })}
+              {group.plants.map((plant) => (
+                <article key={plant.id} className="plant-card">
+                  <img src={plant.image} alt={plant.name} className="plant-thumb" />
+                  <h3>{plant.name}</h3>
+                  <p className="plant-description">{plant.description}</p>
+                  <p className="price">${plant.price.toFixed(2)}</p>
+                  <button
+                    type="button"
+                    disabled={addedToCart[plant.name]}
+                    onClick={() => {
+                      dispatch(addItem(plant));
+                      setAddedToCart((prev) => ({ ...prev, [plant.name]: true }));
+                    }}
+                  >
+                    {addedToCart[plant.name] ? "Added to Cart" : "Add to Cart"}
+                  </button>
+                </article>
+              ))}
             </div>
           </section>
         ))}
